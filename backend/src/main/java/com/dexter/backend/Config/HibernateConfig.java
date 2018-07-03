@@ -13,7 +13,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 
 import com.dexter.backend.Model.Customer;
-import com.dexter.backend.Model.Role;
+
 
 @Configuration
 @ComponentScan({"com.dexter.backend"})
@@ -42,7 +42,7 @@ public class HibernateConfig {
 		LocalSessionFactoryBuilder builder=new LocalSessionFactoryBuilder(dataSource);
 		builder.addProperties(getHibernateProperties());
 		builder.addAnnotatedClass(Customer.class);
-		builder.addAnnotatedClass(Role.class);
+/*		builder.addAnnotatedClass(Role.class);*/
 		return builder.buildSessionFactory();
 		
 	}

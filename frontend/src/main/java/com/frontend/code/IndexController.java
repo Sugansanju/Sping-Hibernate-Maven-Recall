@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.dexter.backend.Dao.CustomerDao;
-import com.dexter.backend.Model.Customer;
+import com.dexter.backend.dao.CustomerDao;
+import com.dexter.backend.model.Customer;
 
 
 @Controller
@@ -46,14 +46,14 @@ public class IndexController{
 	public ModelAndView validate(HttpServletResponse response,HttpServletRequest request) {
 		String email=request.getParameter("username");
 		String password=request.getParameter("password");
-		Customer user=customerDao.findByEmail(request.getParameter("username"));
+		Customer user=customerDao.findByEmail(email,password);
 		ModelAndView mv=null;
 		if(user!=null) {
 		if(email.equals(user.getEmail()) && password.equals(user.getPassword())) {
 			HttpSession session=request.getSession(true);
-			session.setAttribute("email",email);
+			session.setAttribute("email",email);	
 			mv=new ModelAndView();
-			mv=new ModelAndView("index");
+			return new ModelAndView("index","email",email);	
 		}
 		}
 		else

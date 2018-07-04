@@ -1,4 +1,4 @@
-package com.dexter.backend.Config;
+package com.dexter.backend.config;
 
 import java.util.Properties;
 
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 
-import com.dexter.backend.Model.Customer;
+import com.dexter.backend.model.Customer;
 
 
 @Configuration

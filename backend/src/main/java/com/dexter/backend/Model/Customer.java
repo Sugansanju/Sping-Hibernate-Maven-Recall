@@ -1,12 +1,15 @@
-package com.dexter.backend.Model;
+package com.dexter.backend.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 @Entity
 @Table(name="Customer")
+@Component
 public class Customer {
 		@Id
 		@GeneratedValue

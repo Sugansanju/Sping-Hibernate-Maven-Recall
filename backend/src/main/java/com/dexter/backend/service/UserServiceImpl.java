@@ -5,24 +5,47 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dexter.backend.dao.CustomerDao;
 import com.dexter.backend.model.Customer;
 
 @Service
 public class UserServiceImpl implements UserService {
-	
-	   @PersistenceContext
-	    private EntityManager entityManager;
-	
-	/*@Autowired
+	@Autowired
 	private CustomerDao customerDao;
-	public CustomerDao getcustomerDao() {
-		return customerDao;
-	}*/
-	   @SuppressWarnings("unchecked")
+
 	public List<Customer> getAllCustomer() {
-		 /*  return customerDao.listCustomers();*/
+		return customerDao.getAllCustomer();
+	}
+
+	public Customer getById(int id) {
+		  return customerDao.getById(id); 
+		  }
+
+	public int save(Customer customer) {
+		
+		return customerDao.save(customer);
+		
+	}
+	public void update(Customer customer) {
+	customerDao.update(customer);
+	}
+
+	public void delete(int id) {
+		customerDao.delete(id);
+	}
+
+	public boolean add(Customer customer) {
+		return customerDao.add(customer);
+	}
+	
+/*	   @PersistenceContext
+	    private EntityManager entityManager;
+
+	   @SuppressWarnings("unchecked")
+	   public List<Customer> getAllCustomer() {
 		return entityManager.createQuery("select cus from Customer cus").getResultList();
 	}
 
@@ -30,32 +53,18 @@ public class UserServiceImpl implements UserService {
 		return entityManager.find(Customer.class,id);
 	}
 
-	public Customer getByEmailId(String emailId) {
-		
-		return null;
-	}
-
 	public void saveCustomer(Customer customer) {
+		// TODO Auto-generated method stub
 		
 	}
 
 	public void updateCustomer(Customer customer) {
-	
-		entityManager.merge(customer);
-	}
-
-	public Customer validate(Customer customer) {
-	
-		return null;
-	}
-
-	public List<Customer> findAllCustomers(Customer customer) {
-	
-		return null;
-	}
-
-	public Customer findById(long id) {
 		// TODO Auto-generated method stub
-		return null;
-	}	
+		
+	}
+
+	public void delete(Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}*/
 }
